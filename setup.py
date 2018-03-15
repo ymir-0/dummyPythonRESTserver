@@ -9,7 +9,7 @@ setuptools.setup(
     name="DummyPythonRESTserver",
     description="Dummy test for REST with Python3",
     py_modules=['DummyPythonRESTserver'],
-    install_requires=[],
+    install_requires=["flask"],
     classifiers=[
         'Programming Language :: Python :: 3',
     ],
