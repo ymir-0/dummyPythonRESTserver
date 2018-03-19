@@ -10,7 +10,7 @@ app = Flask(__name__)
 # index
 @app.route('/')
 def index():
-    return "Hello, World!"
+    return "Hello, World!\n"
 # dummiest WS
 @app.route('/test/dummiest', methods=['POST','PUT','GET','DELETE'])
 def dummiest():
