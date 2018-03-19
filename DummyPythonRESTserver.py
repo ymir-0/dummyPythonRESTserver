@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 '''
 see REST with Python help :
- - https://flask-restful.readthedocs.io/en/latest/quickstart.html
+ - http://flask.pocoo.org/docs/0.12/quickstart/
  - https://stackoverflow.com/questions/30779584/flask-restful-passing-parameters-to-get-request
 '''
 from flask import Flask, jsonify, request
@@ -13,9 +13,16 @@ def index():
     return "Hello, World!\n"
 # dummiest WS
 @app.route('/test/dummiest', methods=['POST','PUT','GET','DELETE'])
-def dummiest():
+def dummiestParameter():
+    return requestParser(request)
+@app.route('/test/dummiest/<bar>', methods=['POST','PUT','GET','DELETE'])
+def dummiestMember(bar):
+    return requestParser(request)
+# request parser
+def requestParser(request):
     return jsonify(
         {
+            'view_args': request.view_args,
             'host': request.host,
             'path': request.path,
             'method': request.method,
